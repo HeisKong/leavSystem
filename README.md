@@ -7,7 +7,7 @@ spring 3.3.2
 Spring Security( I comment this dependency because cant run with security) i will fig in future)
 
 ## Data base
-I used ProgreSQL the database name is `LeaveSystem` have 4 table     
+I used ProgreSQL the database name is `LeaveSystem` have 4 table, ME create user name is admin and password is 1234 to concent to database.
 users
 ```
 CREATE TABLE users (
@@ -56,6 +56,19 @@ CREATE TABLE leave_balances (
     CONSTRAINT fk_balance_leave_type FOREIGN KEY (leave_type_id) REFERENCES leave_types(id) ON DELETE CASCADE,
     UNIQUE(user_id, leave_type_id, year)
 );
+```
+## How to Connect Data ProgeSql
+In project Spring edit in application.properties add this code        
+```
+spring.datasource.url=jdbc:postgresql://localhost:5432/LeaveSystem
+spring.datasource.username=Admin
+spring.datasource.password=1234
+spring.datasource.driver-class-name=org.postgresql.Driver
+
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+
 ```
 
 ## Feture
